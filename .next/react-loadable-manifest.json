@@ -11,6 +11,12 @@
       "static/chunks/_app-pages-browser_node_modules_tanstack_query-devtools_build_DevtoolsPanelComponent_PULY4AJ7_js.js"
     ]
   },
+  "app/auth/login/page.tsx -> features/auth/components": {
+    "id": "app/auth/login/page.tsx -> features/auth/components",
+    "files": [
+      "static/chunks/_app-pages-browser_src_features_auth_components_index_ts.js"
+    ]
+  },
   "app/dashboard/procurement/procurement-plan/page.tsx -> @/features/procurement/components/procurement-plan/index": {
     "id": "app/dashboard/procurement/procurement-plan/page.tsx -> @/features/procurement/components/procurement-plan/index",
     "files": [

@@ -1,7 +1,8 @@
 {
+  "/auth/login/page": "app/auth/login/page.js",
   "/dashboard/procurement/vendor-management/eoi/page": "app/dashboard/procurement/vendor-management/eoi/page.js",
   "/dashboard/procurement/vendor-performance/page": "app/dashboard/procurement/vendor-performance/page.js",
   "/dashboard/procurement/supplier-database/page": "app/dashboard/procurement/supplier-database/page.js",
-  "/dashboard/procurement/price-intelligence/page": "app/dashboard/procurement/price-intelligence/page.js",
-  "/dashboard/procurement/purchase-request/page": "app/dashboard/procurement/purchase-request/page.js"
+  "/dashboard/procurement/purchase-request/page": "app/dashboard/procurement/purchase-request/page.js",
+  "/dashboard/procurement/price-intelligence/page": "app/dashboard/procurement/price-intelligence/page.js"
 }
