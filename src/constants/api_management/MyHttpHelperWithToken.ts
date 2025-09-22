@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL || "https://ahni-erp-029252c2fbb9.herokuapp.com/api/v1/";
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 // Debug logging
 console.log('MyHttpHelperWithToken - Environment check:', {

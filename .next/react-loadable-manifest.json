@@ -16,5 +16,11 @@
     "files": [
       "static/chunks/_app-pages-browser_src_features_procurement_components_procurement-plan_index_tsx.js"
     ]
+  },
+  "app/dashboard/procurement/vendor-management/eoi/page.tsx -> @/features/procurement/components/vendor-management/eoi/EOI": {
+    "id": "app/dashboard/procurement/vendor-management/eoi/page.tsx -> @/features/procurement/components/vendor-management/eoi/EOI",
+    "files": [
+      "static/chunks/_app-pages-browser_src_features_procurement_components_vendor-management_eoi_EOI_tsx.js"
+    ]
   }
 }

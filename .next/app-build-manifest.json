@@ -25,6 +25,41 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/procurement/procurement-tracker/page.js"
+    ],
+    "/dashboard/projects/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/projects/page.js"
+    ],
+    "/dashboard/procurement/vendor-management/prequalification/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/procurement/vendor-management/prequalification/page.js"
+    ],
+    "/dashboard/procurement/vendor-management/eoi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/procurement/vendor-management/eoi/page.js"
+    ],
+    "/dashboard/procurement/vendor-performance/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/procurement/vendor-performance/page.js"
+    ],
+    "/dashboard/procurement/supplier-database/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/procurement/supplier-database/page.js"
+    ],
+    "/dashboard/procurement/price-intelligence/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/procurement/price-intelligence/page.js"
+    ],
+    "/dashboard/procurement/purchase-request/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/procurement/purchase-request/page.js"
     ]
   }
 }
