@@ -75,6 +75,19 @@ class ChatService {
     data?: any
   ): Promise<T> {
     try {
+      // Debug logging for URL construction
+      console.log('Chat Service Request:', {
+        method,
+        endpoint,
+        baseURL: this.baseURL,
+        fullURL: `${this.baseURL}${endpoint}`,
+        data: data ? 'has data' : 'no data'
+      });
+
+      if (!endpoint || endpoint === 'undefined') {
+        throw new Error(`Invalid endpoint: ${endpoint}`);
+      }
+
       const response: AxiosResponse<T> = await axios({
         method,
         url: `${this.baseURL}${endpoint}`,

@@ -14,6 +14,18 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: false, // Force using Babel instead of SWC
   },
+  async rewrites() {
+    return [
+      {
+        source: '/\\[object%20Object\\]',
+        destination: '/dashboard',
+      },
+      {
+        source: '/undefined',
+        destination: '/dashboard',
+      },
+    ];
+  },
   webpack: (config, { isServer }) => {
     // Enable caching back for better performance
     config.cache = {

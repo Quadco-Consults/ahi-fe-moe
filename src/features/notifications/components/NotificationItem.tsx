@@ -125,7 +125,15 @@ export default function NotificationItem({
                 }
                 // Navigate to action URL or module page
                 const route = action_url || getModuleRoute(module_type);
-                router.push(route);
+                console.log('Notification route navigation:', { action_url, module_type, route });
+
+                if (route && typeof route === 'string') {
+                    router.push(route);
+                } else {
+                    console.error('Invalid route for navigation:', route);
+                    // Fallback to dashboard
+                    router.push('/dashboard');
+                }
             }}
         >
             <div className="flex items-start gap-3 flex-1">

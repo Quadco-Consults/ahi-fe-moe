@@ -2,6 +2,13 @@ import axios from "axios";
 
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL || "https://ahni-erp-029252c2fbb9.herokuapp.com/api/v1/";
 
+// Debug logging
+console.log('MyHttpHelperWithToken - Environment check:', {
+  env_var: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: baseURL,
+  has_fallback: !!baseURL
+});
+
 const AxiosWithToken = axios.create({
   baseURL: baseURL,
   headers: {
@@ -9,33 +16,29 @@ const AxiosWithToken = axios.create({
   },
 });
 
-let retryCount = 0;
-
 AxiosWithToken.interceptors.request.use(
-  async (config) => {
+  (config) => {
     const token = localStorage.getItem("token");
 
-    if (!token && retryCount < 3) {
-      console.log(`Token retry attempt ${retryCount + 1}`);
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      retryCount++;
-      return AxiosWithToken.request(config);
-    }
-
-    if (retryCount === 3) {
-      console.log("Max retries reached, proceeding without token");
-      retryCount = 0;
-      return config;
-    }
+    console.log('Request config:', {
+      url: config.url,
+      method: config.method,
+      baseURL: config.baseURL,
+      hasToken: !!token
+    });
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+    } else {
+      console.warn('No authentication token found');
     }
-    
-    retryCount = 0;
+
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    console.error('Request interceptor error:', error);
+    return Promise.reject(error);
+  }
 );
 
 AxiosWithToken.interceptors.response.use(
@@ -44,13 +47,27 @@ AxiosWithToken.interceptors.response.use(
     return response;
   },
   async (error) => {
-    if (error.response && error.response.status === 401) {
-      window.location.href = "/auth/login";
+    // Log detailed error information for debugging
+    console.error('HTTP Error Details:', {
+      message: error.message,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      url: error.config?.url,
+      method: error.config?.method,
+      baseURL: error.config?.baseURL,
+      fullError: error
+    });
 
+    if (error.response && error.response.status === 401) {
+      console.log("Redirecting to login due to 401 error");
+      window.location.href = "/auth/login";
       return Promise.reject(error);
     }
 
-    // Handle other error cases here if needed
+    // Handle undefined or network errors
+    if (!error.response) {
+      console.error('Network error or undefined response:', error.message);
+    }
 
     return Promise.reject(error);
   }

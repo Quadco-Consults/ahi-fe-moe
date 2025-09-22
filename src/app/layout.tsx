@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "@/utils/polyfills";
+import "@/utils/router-debug";
 import AppProviders from "./providers";
 import StoreProvider from "./StoreProvider";
 import { ChatButton } from "@/components/chat";

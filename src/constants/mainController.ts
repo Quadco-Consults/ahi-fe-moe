@@ -115,12 +115,23 @@ const useApiManager = <TData = unknown, TError = Error, TVariables = unknown>({
         }
       }
       
-      throw new Error(
-        axiosError.response?.data?.message || 
-        axiosError.response?.data?.error ||
-        `HTTP ${axiosError.response?.status}: ${axiosError.response?.statusText}` ||
-        "An unexpected error occurred"
-      ) as TError;
+      // Create more descriptive error message
+      let errorMessage = "An unexpected error occurred";
+
+      if (axiosError.response?.data?.message) {
+        errorMessage = axiosError.response.data.message;
+      } else if (axiosError.response?.data?.error) {
+        errorMessage = axiosError.response.data.error;
+      } else if (axiosError.response?.status) {
+        errorMessage = `HTTP ${axiosError.response.status}: ${axiosError.response.statusText || 'Unknown Error'}`;
+      } else if (axiosError.message) {
+        errorMessage = `Network Error: ${axiosError.message}`;
+      } else if (!navigator.onLine) {
+        errorMessage = "No internet connection";
+      }
+
+      console.error("Final error message:", errorMessage);
+      throw new Error(errorMessage) as TError;
     }
   };
 

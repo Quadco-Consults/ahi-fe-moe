@@ -1,0 +1,5 @@
+{
+  "/dashboard/procurement/procurement-plan/page": "app/dashboard/procurement/procurement-plan/page.js",
+  "/dashboard/procurement/procurement-tracker/page": "app/dashboard/procurement/procurement-tracker/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
+}
