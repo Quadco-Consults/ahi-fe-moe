@@ -14,15 +14,12 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: false, // Force using Babel instead of SWC
   },
+  // Add proxy configuration for API calls to avoid CORS issues in development
   async rewrites() {
     return [
       {
-        source: '/\\[object%20Object\\]',
-        destination: '/dashboard',
-      },
-      {
-        source: '/undefined',
-        destination: '/dashboard',
+        source: '/api/proxy/:path*',
+        destination: 'https://ahni-erp-029252c2fbb9.herokuapp.com/api/v1/:path*',
       },
     ];
   },
